@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 父 POM 配置 -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.9.RELEASE</version>
+        <relativePath/> <!-- 从仓库查找父 POM -->
+    </parent>
+
+    <groupId>com.zhu.pan</groupId>
+    <artifactId>z-pan-parent</artifactId>
+    <version>1.0</version>
+    <name>z-pan-parent</name>
+    <description>Z Pan项目服务端</description>
+    <modules>
+        <module>framework</module>
+        <module>server</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <druid.version>1.1.10</druid.version>
+        <mysql-connector.version>8.0.11</mysql-connector.version>
+        <mybatis-plus.version>3.3.2</mybatis-plus.version>
+        <velocity.version>2.3</velocity.version>
+        <jackson.version>2.9.8</jackson.version>
+        <guava.version>20.0</guava.version>
+        <commons-lang3.version>3.5</commons-lang3.version>
+        <commons-collections.version>3.2.1</commons-collections.version>
+        <fastjson.version>1.2.56</fastjson.version>
+        <jjwt.version>0.7.0</jjwt.version>
+        <commons-io.version>2.4</commons-io.version>
+        <swagger2.version>2.8.0</swagger2.version>
+        <swagger2.ui.version>1.9.3</swagger2.ui.version>
+        <hutool.version>4.5.18</hutool.version>
+        <reflections.version>0.9.10</reflections.version>
+        <fastdfs.client.version>1.26.1-RELEASE</fastdfs.client.version>
+        <oss.client.version>2.8.3</oss.client.version>
+        <rocketmq.version>2.0.3</rocketmq.version>
+        <org.mapstruct.version>1.5.2.Final</org.mapstruct.version>
+        <projectlombok.version>1.18.20</projectlombok.version>
+        <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- reflections：用于处理 Java 反射，支持动态加载类、方法、字段等信息 -->
+            <dependency>
+                <groupId>org.reflections</groupId>
+                <artifactId>reflections</artifactId>
+                <version>${reflections.version}</version>
+            </dependency>
+
+            <!-- mysql-connector-java：用于连接 MySQL 数据库的 JDBC 驱动 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <scope>runtime</scope>
+                <version>${mysql-connector.version}</version>
+            </dependency>
+
+            <!-- mybatis-plus-spring-boot-starter：MyBatis 的增强工具，简化 MyBatis 的开发 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <!-- velocity-engine-core：用于 Java 模板引擎，支持生成 HTML、XML 等格式文本 -->
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity-engine-core</artifactId>
+                <version>${velocity.version}</version>
+            </dependency>
+
+            <!-- jackson-annotations：提供 JSON 数据与 Java 对象之间相互转换的注解支持 -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <!-- guava：Google 提供的常用工具库，包含数据结构、缓存机制等功能 -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <!-- commons-lang3：Apache Commons 提供的工具库，包含字符串、日期、反射等工具 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+
+            <!-- commons-collections：Apache Commons 提供的工具库，扩展 Java 集合框架功能 -->
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons-collections.version}</version>
+            </dependency>
+
+            <!-- commons-io：Apache Commons 提供的 IO 工具库，包含文件、流操作等的便捷方法 -->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+
+            <!-- fastjson：阿里巴巴提供的 JSON 解析库，高效解析和生成 JSON 数据 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <!-- jjwt：用于处理 JSON Web Token（JWT）的 Java 库 -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+
+            <!-- swagger2：用于生成 API 文档，Swagger 是自动化生成 RESTful API 文档的工具 -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>swagger-bootstrap-ui</artifactId>
+                <version>${swagger2.ui.version}</version>
+            </dependency>
+
+            <!-- hutool-core：Java 工具库，提供常用的工具类，如日期、文件、加密等 -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-core</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+            <!-- fastdfs-client：用于操作 FastDFS 分布式文件系统的 Java 客户端 -->
+            <dependency>
+                <groupId>com.github.tobato</groupId>
+                <artifactId>fastdfs-client</artifactId>
+                <version>${fastdfs.client.version}</version>
+            </dependency>
+
+            <!-- aliyun-sdk-oss：阿里云对象存储服务（OSS）的 SDK，用于访问阿里云 OSS -->
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${oss.client.version}</version>
+            </dependency>
+
+            <!-- rocketmq-spring-boot-starter：用于集成 Apache RocketMQ 消息队列的 Spring Boot 启动器 -->
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>${rocketmq.version}</version>
+            </dependency>
+
+            <!-- mapstruct：用于 Java Bean 之间转换的库，简化对象之间的映射 -->
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${org.mapstruct.version}</version>
+            </dependency>
+
+            <!-- lombok：用于简化 Java 代码，通过注解自动生成常用方法（如 Getter、Setter、toString 等） -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${projectlombok.version}</version>
+            </dependency>
+
+            <!-- caffeine：高性能的 Java 缓存库 -->
+            <dependency>
+                <groupId>com.github.ben-manes.caffeine</groupId>
+                <artifactId>caffeine</artifactId>
+                <version>${caffeine.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <!-- 编译插件：指定 Java 编译器的版本 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                    <encoding>utf-8</encoding>
+                    <skip>true</skip> <!-- 跳过编译 -->
+                </configuration>
+            </plugin>
+
+            <!-- 版本管理插件：用于统一管理和修改项目版本号 -->
+            <!--统一修改版本号：mvn versions:set -DnewVersion=1.0.1-SNAPSHOT -->
+            <!--提交版本号：mvn versions:commit-->
+            <!--回退版本号：mvn versions:revert-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.7</version>
+            </plugin>
+
+            <!-- 打包插件：用于创建项目的打包（如生成 JAR 文件） -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.6</version>
+            </plugin>
+
+            <!-- JAR 插件：用于生成 JAR 包 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.2</version>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
