@@ -21,3 +21,15 @@ management:
       exposure:
         include: '*'
         exclude: env,beans
+
+swagger2:
+  show: true
+  group-name: ${spring.application.name}
+  base-package: com.zhu.pan
+  title: r-pan-server docs
+  description: r-pan-server docs
+  terms-of-service-url: http://127.0.0.1:${server.port}
+  contact-name: zt
+  contact-url: https://blog.zt.com
+  contact-email: zt@126.com
+  version: 1.0
