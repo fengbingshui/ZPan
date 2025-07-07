@@ -5,21 +5,17 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.zhu.pan</groupId>
-        <artifactId>z-pan-parent</artifactId>
+        <artifactId>framework</artifactId>
         <version>1.0</version>
     </parent>
 
-    <artifactId>framework</artifactId>
+    <artifactId>orm</artifactId>
 
     <packaging>pom</packaging>
-    <modules>
-        <module>core</module>
-        <module>web</module>
-        <module>swagger2</module>
-        <module>orm</module>
-        <module>orm/mybatis-plus</module>
-    </modules>
 
+    <modules>
+        <module>mybatis-plus</module>
+    </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
